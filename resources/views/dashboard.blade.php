@@ -9,7 +9,7 @@
 
 {{-- name <input id="namebox" type ="text" ><br>
 fname <input id="fnamebox" type ="text" ><br>
-age <input id="agebox" type ="text" ><br>
+phone <input id="phonebox" type ="text" ><br>
 workingarea <input id="workbox" type ="text" ><br>
 <br>
 <button id="insert" onclick="insertValue()">INSERT</button>
@@ -37,8 +37,8 @@ workingarea <input id="workbox" type ="text" ><br>
   
     <!-- Number input -->
     <div class="form-outline mb-4">
-        <input type="number" id="agebox" class="form-control" />
-        <label class="form-label" for="agebox">Phone </label>
+        <input type="number" id="phonebox" class="form-control" />
+        <label class="form-label" for="phonebox">Phone </label>
       </div>
     <!-- Text input -->
     <div class="form-outline mb-4">
@@ -68,11 +68,12 @@ workingarea <input id="workbox" type ="text" ><br>
 <table id="myTable" >
     <thead>
         <tr>
-            <th>RFID</th>
+            <th>ID</th>
             <th>Full name</th>
             <th>Father Name</th>
             <th>Phone</th>
             <th>Working Area</th>
+            <th>RFID</th>
             <th>Update</th>
             <th>Delete</th>
         </tr>
@@ -156,17 +157,17 @@ workingarea <input id="workbox" type ="text" ><br>
           <label for="updatefname" class="form-label">Father Name </label>
         </div>
         <div class="form-outline mb-4">
-          <input type="number" class="form-control" id="updateAge" name="updateAge">
-          <label for="updateAge" class="form-label">Age </label>
+          <input type="number" class="form-control" id="updatephone" name="updatephone">
+          <label for="updatephone" class="form-label">phone </label>
         </div>
         <div class="form-outline ">
           <input type="text" class="form-control" id="updateWorkingArea" name="updateWorkingArea">
           <label for="updateWorkingArea" class="form-label">Working Area</label>
         </div>
-        <div class="form-outline ">
+        {{-- <div class="form-outline ">
           <input type="text" class="form-control" id="updaterfid" name="updaterfid">
           <label for="updaterfid" class="form-label">RFID</label>
-        </div>
+        </div> --}}
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-dark" data-mdb-dismiss="modal">
@@ -206,15 +207,15 @@ workingarea <input id="workbox" type ="text" ><br>
         $('#exampleModal').modal('toggle');
 
     }
-    function updateData(id,name,fname,age,workingarea) {
+    function updateData(id,name,fname,phone,workingarea) {
         // alert(id)
         document.getElementById('updateid').value = id;
         // document.getElementById('updatedata').innerHTML = id;
         document.getElementById('updatename').value = name;
         document.getElementById('updatefname').value = fname;
-        document.getElementById('updateAge').value = age;
+        document.getElementById('updatephone').value = phone;
         document.getElementById('updateWorkingArea').value = workingarea;
-        document.getElementById('updaterfid').value = id;
+        // document.getElementById('updaterfid').value = id;
 
         $('#updateModal').modal('toggle');
 
@@ -225,17 +226,19 @@ workingarea <input id="workbox" type ="text" ><br>
         // firebase.database().ref('employ/' + id).remove();
         name = document.getElementById('updatename').value
         fname = document.getElementById('updatefname').value
-        age = document.getElementById('updateAge').value
+        phone = document.getElementById('updatephone').value
         workingArea = document.getElementById('updateWorkingArea').value
+        // rfid = document.getElementById('updaterfid').value
         console.log(name)
-        console.log(workingArea)
+        console.log(rfid)
         ref = firebase.database().ref('employ').child(id)
         // .child('employerName').setValue(name)
         ref.update({
           employerName:name,
           fname:fname,
-          age:age,
+          phone:phone,
           workingarea:workingArea,
+          // rfid: rfid
       });
           
         $('#updateModal').modal('toggle');  
@@ -245,7 +248,7 @@ workingarea <input id="workbox" type ="text" ><br>
 
 
 
-var nameV,fnameV,ageV,workV;
+var nameV,fnameV,phoneV,workV;
 // function Ready(){
 // }
 // // //insert work//
@@ -262,13 +265,14 @@ starCountRef.on('value', (snapshot) => {
   var value = [];
   for (const item in data) {
         id = item;
-        age = data[item]['age']
+        phone = data[item]['phone']
         name = data[item]['employerName']
         fname = data[item]['fname']
         workingarea = data[item]['workingarea']
-        updateBTN = `<button class='btn btn-primary' onclick='updateData("`+id+`","`+name+`","`+fname+`","`+age+`","`+workingarea+`")'  data-id=`+id+`>update</button>`;
+        rfid = data[item]['rfid']
+        updateBTN = `<button class='btn btn-primary' onclick='updateData("`+id+`","`+name+`","`+fname+`","`+phone+`","`+workingarea+`")'  data-id=`+id+`>update</button>`;
         deleteBTN = `<button class='btn btn-danger' onclick='updateNDelete("`+id+`","`+name+`")' data-id=`+id+` >delete</button>`;
-        value.push([id,name,fname,age,workingarea,updateBTN,deleteBTN])
+        value.push([id,name,fname,phone,workingarea,rfid,updateBTN,deleteBTN])
         key.push(id)
 
   }
@@ -288,7 +292,7 @@ datatable.clear().rows.add(value).draw();
 nameV=document.getElementById('namebox').value;
 id=document.getElementById('rfidbox').value;
 fnameV=document.getElementById('fnamebox').value;
-ageV=document.getElementById('agebox').value;
+phoneV=document.getElementById('phonebox').value;
 workV=document.getElementById('workbox').value;
         console.log(nameV)
         console.log(fnameV)
@@ -297,7 +301,7 @@ workV=document.getElementById('workbox').value;
             firebase.database().ref('employ').child(id).set({
                 employerName:nameV,
                 fname:fnameV,
-                age:ageV,
+                phone:phoneV,
                 workingarea:workV,
                 rfid: id
             });
@@ -308,7 +312,7 @@ workV=document.getElementById('workbox').value;
             
         nameV=document.getElementById('namebox').value = "";
         fnameV=document.getElementById('fnamebox').value ="";
-        ageV=document.getElementById('agebox').value = "";
+        phoneV=document.getElementById('phonebox').value = "";
         workV=document.getElementById('workbox').value ="";
         workV=document.getElementById('rfidbox').value ="";
         }
@@ -318,7 +322,7 @@ workV=document.getElementById('workbox').value;
     //     firebase.database().ref('employ/'+rollV.set({
     //         employnamnpme:nameV,
     //         fname:fnameV,
-    //         age:ageV,
+    //         phone:phoneV,
     //         workingarea:work,
     //     });
 
