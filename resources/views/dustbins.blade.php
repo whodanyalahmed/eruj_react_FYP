@@ -150,12 +150,12 @@ workingarea <input id="DustbinId" type ="text" ><br>
           <label for="updateDustbinLocation" class="form-label">Dustbin Location </label>
         </div>
         <div class="form-outline mb-4">
-          <input type="number" class="form-control" id="updateDustbinArea" name="updateDustbinArea">
-          <label for="updateDustbinArea" class="form-label">Age </label>
+          <input type="text" class="form-control" id="updateDustbinArea" name="updateDustbinArea">
+          <label for="updateDustbinArea" class="form-label">Dustbin Area </label>
         </div>
         <div class="form-outline ">
           <input type="text" class="form-control" id="updateDustbinId" name="updateDustbinId">
-          <label for="updateDustbinId" class="form-label">Working Area</label>
+          <label for="updateDustbinId" class="form-label">Dustbin Id</label>
         </div>
       </div>
       <div class="modal-footer">
@@ -217,8 +217,8 @@ workingarea <input id="DustbinId" type ="text" ><br>
         DustbinArea = document.getElementById('updateDustbinArea').value
         dustbinID = document.getElementById('updateDustbinId').value
         console.log(name)
-        console.log(workingArea)
-        ref = firebase.database().ref('employ').child(id)
+        console.log(dustbinID)
+        ref = firebase.database().ref('dustbin').child(id)
         // .child('employerName').setValue(name)
         ref.update({
             DustbinName:name,
