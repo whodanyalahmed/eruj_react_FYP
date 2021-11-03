@@ -26,7 +26,7 @@
                 <h1 class="fw-bolder mt-5 text-center "><i>Login !</i> </h1>
               
                 
-              <form id="userform">x
+              <form id="userform">
                 @csrf
                 <!-- Email input -->
                 <div class="form-outline mb-4 mt-lg-4 mt-sm-4">

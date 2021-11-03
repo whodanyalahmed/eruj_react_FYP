@@ -44,7 +44,7 @@
     <!-- MDB -->
 </head>
 <body>
-    
+    <x-navbar/>
     <main >
         @yield('content')
     </main>
@@ -55,6 +55,5 @@ type="text/javascript"
 src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"
 >
 </script>
-
 
 </html>
