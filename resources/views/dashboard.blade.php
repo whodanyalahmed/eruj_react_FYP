@@ -46,6 +46,11 @@ workingarea <input id="workbox" type ="text" ><br>
       <label class="form-label" for="workbox">Working area </label>
     </div>
   
+    <div class="form-outline mb-4">
+      <input type="text" id="rfidbox" class="form-control" />
+      <label class="form-label" for="rfidbox">RFID </label>
+    </div>
+  
   
     <!-- Submit button -->
     <div class="row">
@@ -63,6 +68,7 @@ workingarea <input id="workbox" type ="text" ><br>
 <table id="myTable" >
     <thead>
         <tr>
+            <th>RFID</th>
             <th>Full name</th>
             <th>Father Name</th>
             <th>Phone</th>
@@ -157,6 +163,10 @@ workingarea <input id="workbox" type ="text" ><br>
           <input type="text" class="form-control" id="updateWorkingArea" name="updateWorkingArea">
           <label for="updateWorkingArea" class="form-label">Working Area</label>
         </div>
+        <div class="form-outline ">
+          <input type="text" class="form-control" id="updaterfid" name="updaterfid">
+          <label for="updaterfid" class="form-label">RFID</label>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-dark" data-mdb-dismiss="modal">
@@ -204,6 +214,7 @@ workingarea <input id="workbox" type ="text" ><br>
         document.getElementById('updatefname').value = fname;
         document.getElementById('updateAge').value = age;
         document.getElementById('updateWorkingArea').value = workingarea;
+        document.getElementById('updaterfid').value = id;
 
         $('#updateModal').modal('toggle');
 
@@ -257,7 +268,7 @@ starCountRef.on('value', (snapshot) => {
         workingarea = data[item]['workingarea']
         updateBTN = `<button class='btn btn-primary' onclick='updateData("`+id+`","`+name+`","`+fname+`","`+age+`","`+workingarea+`")'  data-id=`+id+`>update</button>`;
         deleteBTN = `<button class='btn btn-danger' onclick='updateNDelete("`+id+`","`+name+`")' data-id=`+id+` >delete</button>`;
-        value.push([name,fname,age,workingarea,updateBTN,deleteBTN])
+        value.push([id,name,fname,age,workingarea,updateBTN,deleteBTN])
         key.push(id)
 
   }
@@ -275,6 +286,7 @@ datatable.clear().rows.add(value).draw();
     function insertValue(){
         
 nameV=document.getElementById('namebox').value;
+id=document.getElementById('rfidbox').value;
 fnameV=document.getElementById('fnamebox').value;
 ageV=document.getElementById('agebox').value;
 workV=document.getElementById('workbox').value;
@@ -282,11 +294,12 @@ workV=document.getElementById('workbox').value;
         console.log(fnameV)
         try {
             
-            firebase.database().ref('employ').push().set({
+            firebase.database().ref('employ').child(id).set({
                 employerName:nameV,
                 fname:fnameV,
                 age:ageV,
                 workingarea:workV,
+                rfid: id
             });
         } catch (error) {
             alert("cant insert the data...")
@@ -297,6 +310,7 @@ workV=document.getElementById('workbox').value;
         fnameV=document.getElementById('fnamebox').value ="";
         ageV=document.getElementById('agebox').value = "";
         workV=document.getElementById('workbox').value ="";
+        workV=document.getElementById('rfidbox').value ="";
         }
     }
     // document.getElementById('insert').onclick=function(){
