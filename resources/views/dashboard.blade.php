@@ -6,6 +6,12 @@
 
 
 @section('content')
+<div class="container">
+  <div class="row">
+    <div class="col-10"></div>
+    <div class="col-2"><a class="btn btn-danger float-end" href="/logout">Logout</a></div>
+  </div>
+</div>
 {{-- name <input id="namebox" type ="text" ><br>
 fname <input id="fnamebox" type ="text" ><br>
 age <input id="agebox" type ="text" ><br>
