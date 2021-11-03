@@ -67,6 +67,7 @@ workingarea <input id="DustbinId" type ="text" ><br>
             <th>Dustbin Location</th>
             <th>Dustbin Area</th>
             <th>Dustbin Id</th>
+            <th>Dustbin Percentage</th>
             <th>Update</th>
             <th>Delete</th>
         </tr>
@@ -255,9 +256,10 @@ starCountRef.on('value', (snapshot) => {
         name = data[item]['DustbinName']
         dustbinID = data[item]['dustbinID']
         DustbinArea = data[item]['DustbinArea']
+        dustbinPercentage = data[item]['dustbinPercentage']
         updateBTN = `<button class='btn btn-primary' onclick='updateData("`+id+`","`+name+`","`+DustbinLocation+`","`+DustbinArea+`","`+dustbinID+`")'  data-id=`+id+`>update</button>`;
         deleteBTN = `<button class='btn btn-danger' onclick='updateNDelete("`+id+`","`+name+`")' data-id=`+id+` >delete</button>`;
-        value.push([name,DustbinLocation,DustbinArea,dustbinID,updateBTN,deleteBTN])
+        value.push([name,DustbinLocation,DustbinArea,dustbinID,dustbinPercentage,updateBTN,deleteBTN])
         key.push(id)
 
   }
@@ -287,6 +289,7 @@ did=document.getElementById('dustbinID').value;
                 DustbinLocation:dlocation,
                 DustbinArea:darea,
                 dustbinID:did,
+                dustbinPercentage : 0,
             });
         } catch (error) {
             alert("cant insert the data...")
