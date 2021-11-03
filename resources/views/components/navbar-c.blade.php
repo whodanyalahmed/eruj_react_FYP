@@ -1,5 +1,5 @@
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light mx-3" >
     <!-- Container wrapper -->
     <div class="container-fluid">
       <!-- Toggle button -->
@@ -18,18 +18,17 @@
       <!-- Collapsible wrapper -->
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <!-- Navbar brand -->
-        <a class="navbar-brand mt-2 mt-lg-0  fs-4 fw-bold"  href="#">
+        <a class="navbar-brand mt-2 mt-lg-0 fs-4 fw-bold" href="#" >
           {{-- <img
             src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png"
             height="15"
             alt=""
             loading="lazy"
           /> --}}
-          
           <abbr title="Garbage Management System">GMS</abbr> 
         </a>
         <!-- Left links -->
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <a class="nav-link" href="#">Dashboard</a>
           </li>
@@ -45,9 +44,9 @@
       <!-- Collapsible wrapper -->
   
       <!-- Right elements -->
-      {{-- <div class="d-flex align-items-center">
+      <div class="d-flex align-items-center">
         <!-- Icon -->
-        <a class="text-reset me-3" href="#">
+        {{-- <a class="text-reset me-3" href="#">
           <i class="fas fa-shopping-cart"></i>
         </a>
   
@@ -79,8 +78,6 @@
         </ul> --}}
   
         <!-- Avatar -->
-        
-        @if (session('user'))
         <a
           class="dropdown-toggle d-flex align-items-center hidden-arrow"
           href="#"
@@ -96,19 +93,23 @@
             alt=""
             loading="lazy"
           /> --}}
-          <span class="bg-dark " style="border-radius: 100px;padding:8px 13px;"><i class="far fa-user text-white"></i></span>
+        @if (session('user'))
+        <span class="bg-dark " style="border-radius: 100px;padding:8px 13px;"><i class="far fa-user text-white"></i></span>
         </a>
         <ul
           class="dropdown-menu dropdown-menu-end"
           aria-labelledby="navbarDropdownMenuLink"
         >
+          <li>
             <a class="dropdown-item" href="#">Logout</a>
           </li>
         </ul>
-        
+      </div>
+                
+      
             
       @endif
-      </div>
+        
       <!-- Right elements -->
     </div>
     <!-- Container wrapper -->

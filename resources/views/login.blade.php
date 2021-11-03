@@ -15,6 +15,7 @@
     }
     </style>
     {{-- login UI --}}
+    <x-navbar/>
     <section class="vh-100">
 
         <div class="container py-5 h-100">
