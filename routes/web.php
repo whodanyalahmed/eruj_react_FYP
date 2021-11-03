@@ -33,6 +33,22 @@ Route::get('/dashboard',function(){
     return view('dashboard');
     
 });
+Route::get('/dustbins',function(){
+    if(!(session()->has('user'))){
+        
+        return redirect('/');;
+    }
+    return view('dustbins');
+    
+});
+Route::get('/dashboard',function(){
+    if(!(session()->has('user'))){
+        
+        return redirect('/');;
+    }
+    return view('dashboard');
+    
+});
 
 Route::get('/logout',function(Request $request){
     if(session()->has('user')){

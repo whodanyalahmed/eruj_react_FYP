@@ -1,5 +1,5 @@
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light mx-3">
     <!-- Container wrapper -->
     <div class="container-fluid">
       <!-- Toggle button -->
@@ -29,15 +29,15 @@
           <abbr title="Garbage Management System">GMS</abbr> 
         </a>
         <!-- Left links -->
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="#">Dashboard</a>
+            <a class="nav-link" href="/dashboard">Dashboard</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Team</a>
+            <a class="nav-link" href="/dustbins">Dustbins</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Projects</a>
+            <a class="nav-link" href="/collections">Collection</a>
           </li>
         </ul>
         <!-- Left links -->
@@ -82,7 +82,7 @@
         
         @if (session('user'))
         <a
-          class="dropdown-toggle d-flex align-items-center hidden-arrow"
+          class="dropdown-toggle d-flex align-items-center hidden-arrow ms-2"
           href="#"
           id="navbarDropdownMenuLink"
           role="button"
@@ -102,7 +102,7 @@
           class="dropdown-menu dropdown-menu-end"
           aria-labelledby="navbarDropdownMenuLink"
         >
-            <a class="dropdown-item" href="#">Logout</a>
+            <a class="dropdown-item" href="/logout">Logout</a>
           </li>
         </ul>
         

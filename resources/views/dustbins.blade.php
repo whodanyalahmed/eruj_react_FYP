@@ -1,6 +1,6 @@
 @extends('layouts.base')
 @section('title')
-    Dashboard
+    Dustibins
 @endsection
 
 
@@ -17,20 +17,20 @@ workingarea <input id="workbox" type ="text" ><br>
 <button id="update">UPDATE</button>
 <button id="delete">DELETE</button> --}}
 <div class="container mt-5 ">
-<h1>Add data to form: </h1>
+<h1>Add Dustbin: </h1>
 <div class="container mt-3 mx-3">
     <!-- 2 column grid layout with text inputs for the first and last names -->
     <div class="row mb-4">
       <div class="col">
         <div class="form-outline">
           <input type="text" id="namebox" class="form-control" />
-          <label class="form-label" for="namebox">Full name </label>
+          <label class="form-label" for="namebox">Dustbin </label>
         </div>
       </div>
       <div class="col">
         <div class="form-outline">
           <input type="text" id="fnamebox" class="form-control" />
-          <label class="form-label" for="fnamebox">Father name </label>
+          <label class="form-label" for="fnamebox">Dustbin# </label>
         </div>
       </div>
     </div>
@@ -38,12 +38,12 @@ workingarea <input id="workbox" type ="text" ><br>
     <!-- Number input -->
     <div class="form-outline mb-4">
         <input type="number" id="agebox" class="form-control" />
-        <label class="form-label" for="agebox">Phone </label>
+        <label class="form-label" for="agebox">Dustbin Location </label>
       </div>
     <!-- Text input -->
     <div class="form-outline mb-4">
       <input type="text" id="workbox" class="form-control" />
-      <label class="form-label" for="workbox">Working area </label>
+      <label class="form-label" for="workbox">Dustbin street</label>
     </div>
   
   
