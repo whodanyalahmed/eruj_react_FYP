@@ -41,6 +41,14 @@ Route::get('/dustbins',function(){
     return view('dustbins');
     
 });
+Route::get('/collections',function(){
+    if(!(session()->has('user'))){
+        
+        return redirect('/');;
+    }
+    return view('collection');
+    
+});
 Route::get('/dashboard',function(){
     if(!(session()->has('user'))){
         
