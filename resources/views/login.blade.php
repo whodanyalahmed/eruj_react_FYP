@@ -33,7 +33,7 @@
                 @csrf
                 <!-- Email input -->
                 <div class="form-outline mb-4 mt-lg-4 mt-sm-4">
-                  <input type="email" id="form1Example13" class="form-control form-control-lg" name="email" />
+                  <input type="email" id="form1Example13" class="form-control form-control-lg" name="email" autocomplete="email"/>
                   <label class="form-label" for="form1Example13">Email address</label>
                 </div>
       
