@@ -21,7 +21,9 @@
         <div class="container py-5 h-100">
             <div class="row d-flex align-items-center justify-content-center h-100">
             <div class="col-md-8 col-lg-7 col-xl-6">
-              <img src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-login-form/draw2.svg" class="img-fluid" alt="Phone image">
+              {{-- <img src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-login-form/draw2.svg" class="img-fluid" alt="Phone image">
+               --}}
+               <img src="img/trash.svg " alt="trash and guy" >
             </div>
             <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1 ">
                 <h1 class="fw-bolder mt-5 text-center "><i>Login !</i> </h1>
@@ -37,7 +39,7 @@
       
                 <!-- Password input -->
                 <div class="form-outline mb-4">
-                  <input type="password" id="form1Example23" class="form-control form-control-lg" name="pass" />
+                  <input type="password" current-password id="form1Example23" class="form-control form-control-lg" name="pass" autocomplete="current-password"/>
                   <label class="form-label" for="form1Example23">Password</label>
                 </div>
       
@@ -57,7 +59,7 @@
                 </div>
       
                 <!-- Submit button -->
-                <button onclick="return CheckIfUserExist()" class="btn btn-primary btn-lg btn-block">Sign in</button>
+                <button onclick="return CheckIfUserExist()" class="btn btn-success btn-lg btn-block">Sign in</button>
       
               </form>
               
